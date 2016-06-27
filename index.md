@@ -1,6 +1,6 @@
 ---
 
-layout: ribbon
+layout: default
 
 style: |
 
@@ -124,7 +124,8 @@ Javascript is now your template engine
     * Detects and evaluate your custom components as well as usual html-tags
     * Easy to listen to events
 
-# Recipies
+## Recipies
+{:.shout}
 
 ## Read and set input value
 
@@ -193,6 +194,6 @@ Use can write React components as functions
 
 ## Summary
 
-    * You have a state - just render it. Don't care about previous state
-    * If you want to do something, emit an action
-    * Keep your components as simple as possible
+* You have a state - just render it. Don't care about previous state
+* If you want to do something, emit an action
+* Keep your components as simple as possible
