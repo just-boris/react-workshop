@@ -37,7 +37,7 @@ style: |
 ## The plan
 
 1. React comparing with other frameworks
-2. Popular recipies
+2. Popular recipes
 
 
 ## Component frameworks
@@ -62,7 +62,7 @@ Screenshot components inside components
         render() {
             return <div>
                 <LoginForm /> // <-- this is component
-                <footer>Copyright 2016, bla-bla-bla</footer> // <-- this is just html-tag
+                <input type="email"> // <-- this is just html-tag
             </div>
         }
     })
@@ -124,6 +124,10 @@ Javascript is now your template engine
     * Detects and evaluate your custom components as well as usual html-tags
     * Easy to listen to events
 
+## React in production
+
+Just open Facebook!
+
 ## Recipies
 {:.shout}
 
@@ -153,13 +157,15 @@ Javascript is now your template engine
 
 Use Redux:
 
-    ComponentA = connect(state => {value: state.value})(ComponentA)
+    @Connect(state => {value: state.value})
+    class PingComponent extends React.Component {}
 
-    ComponentB = connect(state => {value: state.value})(ComponentB)
+    @Connect(state => {value: state.value})
+    class PongComponent extends React.Component {}
 
 ## Global store object
 
-Picture of store workflow
+![!store](pictures/redux.svg)
 
 ## How to do ajax
 
@@ -195,5 +201,6 @@ Use can write React components as functions
 ## Summary
 
 * You have a state - just render it. Don't care about previous state
+* Data caching for free
 * If you want to do something, emit an action
 * Keep your components as simple as possible
