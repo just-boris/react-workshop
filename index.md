@@ -20,16 +20,12 @@ style: |
         #Cover p a {
             color:#FFF;
             }
-    #Picture h2 {
-        color:#FFF;
-        }
-    #SeeMore h2 {
-        font-size:100px
-        }
-    #SeeMore img {
-        width:0.72em;
-        height:0.72em;
-        }
+
+    .slide.cover img {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 ---
 
 # React workshop {#Cover}
@@ -44,7 +40,8 @@ style: |
 
 1. React
 2. Angular
-3. WebComponents (Polymer)
+3. Ember
+4. WebComponents (Polymer)
 
 And more
 
@@ -89,16 +86,16 @@ And more
         <<mark>/Sidebar</mark>>
     </div>
 
-## Why not Angular
+## JSX
 
-```
+Javascript is now your template engine
+
+    <h1>{name.toUpperCase()}</h1>
     <ul>
-        <li *ng-for="#item in items" (click)="onClick">{{item}}</li>
+        {items.map(item => {
+            return <li>{item.title}: {item.value}</li>
+        })}
     </ul>
-```
-
-There is a special new syntax, that you have to learn
-
 
 ## What is JSX?
 
@@ -113,16 +110,6 @@ Actually it will be a function call
 ```
     var html = React.createElement('div', 'My test content')
 ```
-
-## JSX
-
-Javascript is now your template engine
-
-    <ul>
-        {items.map(item => {
-            return <li>{item.title}: {item.value}</li>
-        })}
-    </ul>
 
 ## Virtual DOM
 
@@ -151,6 +138,8 @@ Javascript is now your template engine
     });
 
 ## Routing
+
+[React-router](https://github.com/reactjs/react-router)
 
     <Router>
         <IndexRoute component={IndexPage} />
@@ -184,21 +173,15 @@ Server requests should happen in "actions"
         }
     }
 
-## A note about functional programming
-
-Use can write React components as functions
+## We can write React components as functions
 
     function AccountInfo(account) {
-       return <div>
-            <div className="column">
-                <p>Name: {account.name}</p>
-                <p>Last name: {account.lastName}</p>
-            </div>
-            <div className="column">
-                <p>Amount: {account.creditAmount}</p>
-                <p>Duration: {account.duration}</p>
-            </div>
-       </div>
+        return <div>
+            <p>Name: {account.name}</p>
+            <p>Last name: {account.lastName}</p>
+            <p>Amount: {account.creditAmount}</p>
+            <p>Duration: {account.duration}</p>
+       </div>;
     }
 
 ## Summary
