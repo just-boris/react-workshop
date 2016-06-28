@@ -190,3 +190,10 @@ Server requests should happen in "actions"
 * Data caching for free
 * If you want to do something, emit an action
 * Keep your components as simple as possible
+
+## Links
+
+* [React tutorial](https://facebook.github.io/react/docs/tutorial.html) – getting started on official website
+* [React cheat sheet](http://reactcheatsheet.com) – hints about React api
+* [React-components](http://react-components.com) – a lot of ready to use UI components
+* [Further reading](https://github.com/markerikson/react-redux-links)
