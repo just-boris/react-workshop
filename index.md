@@ -102,11 +102,15 @@ There is a special new syntax, that you have to learn
 
 This is JavaScript extension, which allows you to embed HMTL
 
+```
     var html = <div>My test content</div>
+```
 
 Actually it will be a function call
 
+```
     var html = React.createElement('div', 'My test content')
+```
 
 ## JSX
 
@@ -120,13 +124,13 @@ Javascript is now your template engine
 
 ## Virtual DOM
 
-    * Re-renders only that parts, that have been changed
-    * Detects and evaluate your custom components as well as usual html-tags
-    * Easy to listen to events
+* Re-renders only that parts, that have been changed
+* Detects and evaluate your custom components as well as usual html-tags
+* Easy to listen to events
 
 ## React in production
 
-Just open Facebook!
+![Facebook](pictures/react-in-prod.png)
 
 ## Recipies
 {:.shout}
@@ -134,15 +138,13 @@ Just open Facebook!
 ## Read and set input value
 
     var Form = React.createClass({
-
         onChange(event) {
-            this.setState({
-                value: event.target.value
-            });
+            const val = event.target.value;
+            this.setState({val: val});
         },
-
         render() {
-            return <input name="firstName" value={this.state.value} onChange={this.onChange}>;
+            return <input value={this.state.val}
+                          onChange={this.onChange}>;
         }
     });
 
@@ -157,10 +159,10 @@ Just open Facebook!
 
 Use Redux:
 
-    @Connect(state => {value: state.value})
+    <mark>@Connect</mark>(state => {value: state.value})
     class PingComponent extends React.Component {}
 
-    @Connect(state => {value: state.value})
+    <mark>@Connect</mark>(state => {value: state.value})
     class PongComponent extends React.Component {}
 
 ## Global store object
@@ -170,13 +172,12 @@ Use Redux:
 ## How to do ajax
 
 Use Axios - modern Ajax library based on promises.
-
 Server requests should happen in "actions"
 
     var saveAction = function(data) {
-        return function(dispatch) {
+        return function(<mark>dispatch</mark>) {
             axios.post('/api/endpoint', data).then(function() {
-                dispatch({type: 'SAVE_SUCCESS'})
+                <mark>dispatch</mark>({type: 'SAVE_SUCCESS'})
             })
         }
     }
