@@ -48,20 +48,22 @@ style: |
 
 And more
 
-## Components to build web applications
+## &nbsp;
+{:.cover}
 
-Screenshot CASI
+![casi](pictures/casi-overview.jpg)
 
-## We need to go deeper
+## &nbsp;
+{:.cover}
 
-Screenshot components inside components
+![casi](pictures/casi-components.jpg)
 
 ## Components are actually custom HTML-tags
 
     var MyApp = React.createClass({
         render() {
             return <div>
-                <LoginForm /> // <-- this is component
+                <mark><LoginForm /></mark> // <-- this is component
                 <input type="email"> // <-- this is just html-tag
             </div>
         }
@@ -71,27 +73,27 @@ Screenshot components inside components
 
     var MyApp = Marionette.LayoutView.extend({
         regions: {
-            login: '.login' // do not forget to add this class into template!
+            <mark>login</mark>: <mark>'.login'</mark> // do not forget to add this class into template!
         },
         onRender() {
-            this.login.show(new LoginForm())
+            this.<mark>login</mark>.show(new <mark>LoginForm</mark>())
         }
     })
 
 ## How to implement this?
 
     <div>
-        <Offer data={data} />
-        <Sidebar state="open">
-            <Journal data={data} />
-        </Sidebar>
+        <<mark>Offer</mark> data={data} />
+        <<mark>Sidebar</mark> state="open">
+            <<mark>Journal</mark> data={data} />
+        <<mark>/Sidebar</mark>>
     </div>
 
 ## Why not Angular
 
 ```
     <ul>
-        <li *ngFor="#item in items" (click)="onClick">{{item}}</li>
+        <li *ng-for="#item in items" (click)="onClick">{{item}}</li>
     </ul>
 ```
 
