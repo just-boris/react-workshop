@@ -1,6 +1,4 @@
 safe: true
-markdown: kramdown
-highlighter: pygments
 permalink: /:title.html
 relative_permalinks: false
 

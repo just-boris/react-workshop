@@ -26,6 +26,14 @@ style: |
         top: 50%;
         transform: translate(-50%, -50%);
     }
+
+    .slide p {
+        margin-bottom: 30px;
+    }
+
+    .slide pre code {
+        line-height: 40px;
+    }
 ---
 
 # React workshop {#Cover}
@@ -57,6 +65,7 @@ And more
 
 ## Components are actually custom HTML-tags
 
+```
     var MyApp = React.createClass({
         render() {
             return <div>
@@ -65,6 +74,7 @@ And more
             </div>
         }
     })
+```
 
 ## Why not Backbone?
 
@@ -79,36 +89,40 @@ And more
 
 ## How to implement this?
 
+```
     <div>
         <<mark>Offer</mark> data={data} />
         <<mark>Sidebar</mark> state="open">
             <<mark>Journal</mark> data={data} />
         <<mark>/Sidebar</mark>>
     </div>
+```
 
 ## JSX
 
 Javascript is now your template engine
 
+```
     <h1>{name.toUpperCase()}</h1>
     <ul>
-        {items.map(item => {
-            return <li>{item.title}: {item.value}</li>
-        })}
+        {items.map(item =>
+            <li>{item.title}: {item.value}</li>
+        )}
     </ul>
+```
 
 ## What is JSX?
 
 This is JavaScript extension, which allows you to embed HMTL
 
 ```
-    var html = <div>My test content</div>
+var html = <div>Test content</div>
 ```
 
 Actually it will be a function call
 
 ```
-    var html = React.createElement('div', 'My test content')
+var html = React.createElement('div','Test content')
 ```
 
 ## Virtual DOM
@@ -126,35 +140,41 @@ Actually it will be a function call
 
 ## Read and set input value
 
-    var Form = React.createClass({
-        onChange(event) {
-            const val = event.target.value;
-            this.setState({val: val});
-        },
-        render() {
-            return <input value={this.state.val}
-                          onChange={this.onChange}>;
-        }
-    });
+```
+var Form = React.createClass({
+    onChange(event) {
+        const val = event.target.value;
+        this.setState({val: <mark>val</mark>});
+    },
+    render() {
+        return <input value={this.state.<mark>val</mark>}
+                      onChange={this.onChange}>;
+    }
+});
+```
 
 ## Routing
 
 [React-router](https://github.com/reactjs/react-router)
 
-    <Router>
-        <IndexRoute component={IndexPage} />
-        <Route path="/account/:id" component={AccountPage} />
-    </Router>
+```
+<Router>
+    <IndexRoute component={IndexPage} />
+    <Route path="/acc/:id" component={AccPage} />
+</Router>
+```
 
 ## Share values between components
 
 Use Redux:
 
-    <mark>@Connect</mark>(state => {value: state.value})
-    class PingComponent extends React.Component {}
+```
+<mark>@Connect</mark>(state => {value: state.value})
+class PingComponent extends React.Component {}
 
-    <mark>@Connect</mark>(state => {value: state.value})
-    class PongComponent extends React.Component {}
+<mark>@Connect</mark>(state => {value: state.value})
+class PongComponent extends React.Component {}
+```
 
 ## Global store object
 
@@ -165,13 +185,15 @@ Use Redux:
 Use Axios - modern Ajax library based on promises.
 Server requests should happen in "actions"
 
-    var saveAction = function(data) {
-        return function(<mark>dispatch</mark>) {
-            axios.post('/api/endpoint', data).then(function() {
-                <mark>dispatch</mark>({type: 'SAVE_SUCCESS'})
-            })
-        }
+```
+var saveAction = function(data) {
+    return function(<mark>dispatch</mark>) {
+        axios.post('/api/method', data).then(function() {
+            <mark>dispatch</mark>({type: 'SAVE_SUCCESS'})
+        })
     }
+}
+```
 
 ## We can write React components as functions
 
