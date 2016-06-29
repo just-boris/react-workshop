@@ -131,6 +131,15 @@ var html = React.createElement('div','Test content')
 * Detects and evaluate your custom components as well as usual html-tags
 * Easy to listen to events
 
+## Solves our issues
+
+This issues wouldn't happen by design with React
+
+ * WEBSITE-18243
+ * WEBSITE-18179
+ * WEBSITE-18175
+ * WEBSITE-18047
+
 ## React in production
 
 ![Facebook](pictures/react-in-prod.png)
